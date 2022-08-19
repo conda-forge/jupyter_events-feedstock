@@ -25,6 +25,7 @@ requirements:
     - python-json-logger
     - ruamel.yaml
     - traitlets
+    - pyyaml
 
 test:
   imports:
