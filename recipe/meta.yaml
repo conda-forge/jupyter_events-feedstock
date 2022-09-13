@@ -27,6 +27,8 @@ requirements:
     - pyyaml
 
 test:
+  source_files:
+    - .
   imports:
     - jupyter_events
   commands:
