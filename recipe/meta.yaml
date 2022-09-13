@@ -1,5 +1,5 @@
 {% set name = "jupyter_events" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyter_events-{{ version }}.tar.gz
-  sha256: 0139151cd81f19407461ecd98e719fe35d1ca545b7b17a0e48b9db8c7c70feee
+  sha256: e27ffdd6138699d47d42cb65ae6d79334ff7c0d923694381c991ce56a140f2cd
 
 build:
   noarch: python
@@ -23,15 +23,18 @@ requirements:
     - jsonschema
     - python >=3.7
     - python-json-logger
-    - ruamel.yaml
     - traitlets
     - pyyaml
 
 test:
+  source_files:
+    - .
   imports:
     - jupyter_events
   commands:
     - pip check
+    - pip install -e ".[test]"
+    - python -m pytest -vv
   requires:
     - pip
 
