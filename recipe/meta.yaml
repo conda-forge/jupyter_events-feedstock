@@ -23,7 +23,6 @@ requirements:
     - jsonschema
     - python >=3.7
     - python-json-logger
-    - ruamel.yaml
     - traitlets
     - pyyaml
 
@@ -32,6 +31,8 @@ test:
     - jupyter_events
   commands:
     - pip check
+    - pip install -e ".[test]"
+    - python -m pytest -vv
   requires:
     - pip
 
