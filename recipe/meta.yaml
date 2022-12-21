@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -20,11 +20,11 @@ requirements:
     - python >=3.7
     - hatchling >=1.0
   run:
-    - jsonschema
+    - jsonschema >=4.3
     - python >=3.7
-    - python-json-logger
-    - traitlets
-    - pyyaml
+    - python-json-logger >=2.0.4
+    - traitlets >=5.3
+    - pyyaml >=6.0
 
 test:
   source_files:
