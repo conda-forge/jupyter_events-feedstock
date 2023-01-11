@@ -20,11 +20,13 @@ requirements:
     - python >=3.7
     - hatchling >=1.0
   run:
-    - jsonschema >=4.3
+    - jsonschema >=3.2
     - python >=3.7
     - python-json-logger >=2.0.4
     - traitlets >=5.3
-    - pyyaml >=6.0
+    - pyyaml >=5.3
+    - rfc3339-validator
+    - rfc3986-validator>=0.1.1
 
 test:
   source_files:
