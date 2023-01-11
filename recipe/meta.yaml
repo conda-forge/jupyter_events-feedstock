@@ -1,5 +1,5 @@
 {% set name = "jupyter_events" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyter_events-{{ version }}.tar.gz
-  sha256: e27ffdd6138699d47d42cb65ae6d79334ff7c0d923694381c991ce56a140f2cd
+  sha256: e363f8314df2ff00122936780c75019a368b41b25fdacedeacf20347ee30d8d5
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -20,11 +20,13 @@ requirements:
     - python >=3.7
     - hatchling >=1.0
   run:
-    - jsonschema >=4.3
+    - jsonschema >=3.2
     - python >=3.7
     - python-json-logger >=2.0.4
     - traitlets >=5.3
-    - pyyaml >=6.0
+    - pyyaml >=5.3
+    - rfc3339-validator
+    - rfc3986-validator >=0.1.1
 
 test:
   source_files:
