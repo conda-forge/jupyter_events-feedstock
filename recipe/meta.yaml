@@ -26,7 +26,7 @@ requirements:
     - traitlets >=5.3
     - pyyaml >=5.3
     - rfc3339-validator
-    - rfc3986-validator>=0.1.1
+    - rfc3986-validator >=0.1.1
 
 test:
   source_files:
