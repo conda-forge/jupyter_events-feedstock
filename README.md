@@ -1,15 +1,17 @@
-About jupyter_events
-====================
-
-Home: https://pypi.org/project/jupyter-events/
-
-Package license: BSD-3-Clause
+About jupyter_events-feedstock
+==============================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyter_events-feedstock/blob/main/LICENSE.txt)
+
+Home: https://pypi.org/project/jupyter-events
+
+Package license: BSD-3-Clause
 
 Summary: Jupyter Event System library
 
 Development: https://github.com/jupyter/jupyter_events
+
+Documentation: https://jupyter-events.readthedocs.io
 
 Current build status
 ====================
@@ -29,7 +31,9 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-_jupyter_events_tests-green.svg)](https://anaconda.org/conda-forge/_jupyter_events_tests) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/_jupyter_events_tests.svg)](https://anaconda.org/conda-forge/_jupyter_events_tests) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/_jupyter_events_tests.svg)](https://anaconda.org/conda-forge/_jupyter_events_tests) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/_jupyter_events_tests.svg)](https://anaconda.org/conda-forge/_jupyter_events_tests) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-jupyter_events-green.svg)](https://anaconda.org/conda-forge/jupyter_events) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jupyter_events.svg)](https://anaconda.org/conda-forge/jupyter_events) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jupyter_events.svg)](https://anaconda.org/conda-forge/jupyter_events) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jupyter_events.svg)](https://anaconda.org/conda-forge/jupyter_events) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-jupyter_events_with_cli-green.svg)](https://anaconda.org/conda-forge/jupyter_events_with_cli) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jupyter_events_with_cli.svg)](https://anaconda.org/conda-forge/jupyter_events_with_cli) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jupyter_events_with_cli.svg)](https://anaconda.org/conda-forge/jupyter_events_with_cli) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jupyter_events_with_cli.svg)](https://anaconda.org/conda-forge/jupyter_events_with_cli) |
 
 Installing jupyter_events
 =========================
@@ -41,41 +45,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `jupyter_events` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `_jupyter_events_tests, jupyter_events, jupyter_events_with_cli` can be installed with `conda`:
 
 ```
-conda install jupyter_events
-```
-
-or with `mamba`:
-
-```
-mamba install jupyter_events
-```
-
-It is possible to list all of the versions of `jupyter_events` available on your platform with `conda`:
-
-```
-conda search jupyter_events --channel conda-forge
+conda install _jupyter_events_tests jupyter_events jupyter_events_with_cli
 ```
 
 or with `mamba`:
 
 ```
-mamba search jupyter_events --channel conda-forge
+mamba install _jupyter_events_tests jupyter_events jupyter_events_with_cli
+```
+
+It is possible to list all of the versions of `_jupyter_events_tests` available on your platform with `conda`:
+
+```
+conda search _jupyter_events_tests --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search _jupyter_events_tests --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search jupyter_events --channel conda-forge
+mamba repoquery search _jupyter_events_tests --channel conda-forge
 
-# List packages depending on `jupyter_events`:
-mamba repoquery whoneeds jupyter_events --channel conda-forge
+# List packages depending on `_jupyter_events_tests`:
+mamba repoquery whoneeds _jupyter_events_tests --channel conda-forge
 
-# List dependencies of `jupyter_events`:
-mamba repoquery depends jupyter_events --channel conda-forge
+# List dependencies of `_jupyter_events_tests`:
+mamba repoquery depends _jupyter_events_tests --channel conda-forge
 ```
 
 
@@ -148,4 +152,5 @@ Feedstock Maintainers
 * [@Zsailer](https://github.com/Zsailer/)
 * [@afshin](https://github.com/afshin/)
 * [@blink1073](https://github.com/blink1073/)
+* [@bollwyvl](https://github.com/bollwyvl/)
 
