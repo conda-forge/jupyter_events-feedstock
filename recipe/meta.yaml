@@ -1,55 +1,109 @@
-{% set name = "jupyter_events" %}
 {% set version = "0.6.3" %}
 
 package:
-  name: {{ name|lower }}
+  name: jupyter_events
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyter_events-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/j/jupyter-events/jupyter_events-{{ version }}.tar.gz
   sha256: 9a6e9995f75d1b7146b436ea24d696ce3a35bfa8bfe45e0c33c334c79464d0b3
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
     - python >=3.7
-    - hatchling >=1.0
   run:
-    - jsonschema >=3.2
     - python >=3.7
-    - python-json-logger >=2.0.4
-    - traitlets >=5.3
-    - pyyaml >=5.3
-    - rfc3339-validator
-    - rfc3986-validator >=0.1.1
 
-test:
-  source_files:
-    - .
-  imports:
-    - jupyter_events
-  commands:
-    - pip check
-    - pip install -e ".[test]"
-    - python -m pytest -vv
-  requires:
-    - pip
+outputs:
+  - name: jupyter_events
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - pip
+        - python >=3.7
+        - hatchling >=1.0
+      run:
+        - jsonschema-with-format-nongpl >=3.2
+        - python >=3.7
+        - python-json-logger >=2.0.4
+        - traitlets >=5.3
+        - pyyaml >=5.3
+        - rfc3339-validator
+        - rfc3986-validator >=0.1.1
+    test:
+      requires:
+        - pip
+      commands:
+        - pip check
+
+  - name: jupyter_events_with_cli
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python >=3.7
+      run:
+        - {{ pin_subpackage("jupyter_events") }}
+        - click
+        - python >=3.7
+        - rich
+    test:
+      imports:
+        - jupyter_events
+        - jupyter_events.cli
+      requires:
+        - pip
+      commands:
+        - pip check
+
+  - name: _jupyter_events_tests
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python >=3.7
+      run:
+        - {{ pin_subpackage("jupyter_events") }}
+        - {{ pin_subpackage("jupyter_events_with_cli") }}
+        - python >=3.7
+    test:
+      source_files:
+        - tests
+        - pyproject.toml
+      imports:
+        - jupyter_events
+        - jupyter_events.cli
+      commands:
+        - pip check
+        - mypy --no-warn-unused-ignores -p=jupyter_events
+        - python -m pytest -vv --cov=jupyter_events --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=88
+      requires:
+        - mypy
+        - pip
+        - pytest-asyncio >=0.19.0
+        - pytest-console-scripts
+        - pytest-cov
+        - types-jsonschema
 
 about:
-  home: https://pypi.org/project/jupyter-events/
+  home: https://pypi.org/project/jupyter-events
   dev_url: https://github.com/jupyter/jupyter_events
   summary: Jupyter Event System library
   license: BSD-3-Clause
   license_family: BSD
   license_file: COPYING.md
+  doc_url: https://jupyter-events.readthedocs.io
 
 extra:
   recipe-maintainers:
     - Zsailer
     - blink1073
     - afshin
+    - bollwyvl
