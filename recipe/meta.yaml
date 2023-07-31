@@ -15,9 +15,9 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python >=3.8
   run:
-    - python >=3.7
+    - python >=3.8
 
 outputs:
   - name: jupyter_events
@@ -27,7 +27,7 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.7
+        - python >=3.8
         - hatchling >=1.0
       run:
         - jsonschema-with-format-nongpl >=3.2
@@ -48,11 +48,11 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.7
+        - python >=3.8
       run:
         - {{ pin_subpackage("jupyter_events") }}
         - click
-        - python >=3.7
+        - python >=3.8
         - rich
     test:
       imports:
@@ -98,7 +98,7 @@ about:
   summary: Jupyter Event System library
   license: BSD-3-Clause
   license_family: BSD
-  license_file: COPYING.md
+  license_file: LICENSE
   doc_url: https://jupyter-events.readthedocs.io
 
 extra:
