@@ -31,7 +31,7 @@ outputs:
         - hatchling >=1.0
       run:
         - jsonschema-with-format-nongpl >=4.18.0
-        - =3.8
+        - python >=3.8
         - python-json-logger >=2.0.4
         - referencing
         - traitlets >=5.3
@@ -49,11 +49,11 @@ outputs:
       noarch: python
     requirements:
       host:
-        - =3.8
+        - python >=3.8
       run:
         - {{ pin_subpackage("jupyter_events") }}
         - click
-        - =3.8
+        - python >=3.8
         - rich
     test:
       imports:
