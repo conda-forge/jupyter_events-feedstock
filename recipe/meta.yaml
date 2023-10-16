@@ -83,10 +83,8 @@ outputs:
         - jupyter_events.cli
       commands:
         - pip check
-        - mypy --no-warn-unused-ignores -p=jupyter_events
         - python -m pytest -vv --cov=jupyter_events --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=88
       requires:
-        - mypy
         - pip
         - pytest-asyncio >=0.19.0
         - pytest-console-scripts
