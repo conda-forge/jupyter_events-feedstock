@@ -5,19 +5,19 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/j/jupyter-events/jupyter_events-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/j/jupyter-events/jupyter_events-{{ version }}.tar.gz
   sha256: 670b8229d3cc882ec782144ed22e0d29e1c2d639263f92ca8383e66682845e22
 
 build:
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
-    - python >=3.8
+    - python >={{ python_min }}
 
 outputs:
   - name: jupyter_events
@@ -27,11 +27,11 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.8
+        - python {{ python_min }}
         - hatchling >=1.0
       run:
         - jsonschema-with-format-nongpl >=4.18.0
-        - python >=3.8
+        - python >={{ python_min }}
         - python-json-logger >=2.0.4
         - referencing
         - traitlets >=5.3
@@ -41,6 +41,7 @@ outputs:
     test:
       requires:
         - pip
+        - python {{ python_min }}
       commands:
         - pip check
 
@@ -49,11 +50,11 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - {{ pin_subpackage("jupyter_events") }}
         - click
-        - python >=3.8
+        - python >={{ python_min }}
         - rich
     test:
       imports:
@@ -61,6 +62,7 @@ outputs:
         - jupyter_events.cli
       requires:
         - pip
+        - python {{ python_min }}
       commands:
         - pip check
 
@@ -69,11 +71,11 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - {{ pin_subpackage("jupyter_events") }}
         - {{ pin_subpackage("jupyter_events_with_cli") }}
-        - python >=3.8
+        - python >={{ python_min }}
     test:
       source_files:
         - tests
@@ -90,6 +92,7 @@ outputs:
         - pip
         - pytest-asyncio >=0.19.0
         - pytest-console-scripts
+        - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/jupyter-events
