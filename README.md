@@ -11,7 +11,7 @@ Summary: Jupyter Event System library
 
 Development: https://github.com/jupyter/jupyter_events
 
-Documentation: https://jupyter-events.readthedocs.io
+Documentation: https://jupyter-events.readthedocs.io/
 
 Current build status
 ====================
