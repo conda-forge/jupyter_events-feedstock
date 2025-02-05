@@ -21,6 +21,9 @@ outputs:
       noarch: python
       script:
         - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+      python:
+        entry_points:
+          - jupyter-events = jupyter_events.cli:main
     requirements:
       host:
         - hatchling >=1.0
@@ -58,6 +61,8 @@ outputs:
             - jupyter_events.cli
           pip_check: true
           python_version: ${{ python_min }}.*
+      - script:
+          - jupyter-events --help
 
   - package:
       name: _jupyter_events_tests
