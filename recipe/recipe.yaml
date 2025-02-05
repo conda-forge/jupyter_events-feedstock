@@ -26,7 +26,7 @@ outputs:
           - jupyter-events = jupyter_events.cli:main
     requirements:
       host:
-        - hatchling >=1.0
+        - hatchling >=1.5
         - pip
         - python ${{ python_min }}.*
       run:
