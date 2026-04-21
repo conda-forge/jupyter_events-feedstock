@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 0.12.0
+  version: "0.12.1"
 
 recipe:
   name: jupyter_events
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/j/jupyter-events/jupyter_events-${{ version }}.tar.gz
-  sha256: fc3fce98865f6784c9cd0a56a20644fc6098f21c8c33834a8d9fe383c17e554b
+  sha256: faff25f77218335752f35f23c5fe6e4a392a7bd99a5939ccb9b8fbf594636cf3
 
 build:
   number: 0
